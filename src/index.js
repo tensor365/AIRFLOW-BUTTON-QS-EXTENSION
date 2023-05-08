@@ -37,7 +37,7 @@ export default function supernova(galaxy) {
               node.id = "msgparent_" + windowId;
               var html =
               '  <div class="lui-modal-background"></div>' +
-              '  <div class="lui-dialog' + (inverse ? '  lui-dialog--inverse' : '') + '" style="position: absolute; width: 30%;top:50%; left:20%;">' +
+              '  <div class="lui-center-dialog lui-dialog' + (inverse ? '  lui-dialog--inverse' : '') + '" style="position: absolute; width: 30%;top:50%; left:20%;">' +
               '    <div class="lui-dialog__header">' +
               '      <div class="lui-dialog__title">' + title + '</div>' +
               '    </div>' +
@@ -96,9 +96,19 @@ export default function supernova(galaxy) {
           }
 
           const triggerButton = () => {
-            displayMessageBox('123eddef12','Integration',"Lancement effectué avec succès",'Ok',null,false)
-            stat = triggerRun();
-            return stat
+            
+            try
+            {
+              displayMessageBox('123eddef12',`${layout.props.messageBoxTitle}`,`${layout.props.messageBoxDetail}`,null,'Ok',false)
+              stat = triggerRun();
+              console.log(stat)
+              return stat
+            }
+            catch
+            {
+              displayMessageBox('123eddef123','Erreur',"Erreur lors de l'intégration du fichier",null,'Ok',false)
+            }
+
           }
 
           element.addEventListener("click",triggerButton)
