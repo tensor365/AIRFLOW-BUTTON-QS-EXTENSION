@@ -129,28 +129,28 @@ export default function ext(/* galaxy */) {
 
                 messageBoxTitleLoading: {
                   ref: 'props.messageBoxTitleLoading',
-                  label: 'Message Box Title',
+                  label: 'Loading Message Box Title',
                   type: 'string',
                   expression: 'optional'
                 }, 
 
                 messageBoxDetailLoading: {
                   ref: 'props.messageBoxDetailLoading',
-                  label: 'Message Box Detail',
+                  label: 'LoadingMessage Box Detail',
                   type: 'string',
                   expression: 'optional'
                 }, 
 
                 messageBoxTitleError: {
                   ref: 'props.messageBoxTitleError',
-                  label: 'Message Box Title',
+                  label: 'On Error Message Box Title',
                   type: 'string',
                   expression: 'optional'
                 }, 
 
                 messageBoxDetailError: {
                   ref: 'props.messageBoxDetailError',
-                  label: 'Message Box Detail',
+                  label: 'On Error Message Box Detail',
                   type: 'string',
                   expression: 'optional'
                 }, 
