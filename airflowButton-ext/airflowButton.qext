@@ -1,0 +1,13 @@
+{
+  "name": "airflowButton",
+  "version": "0.1.0",
+  "description": "",
+  "author": {
+    "name": "",
+    "email": ""
+  },
+  "icon": "extension",
+  "preview": "",
+  "type": "visualization",
+  "supernova": true
+}
