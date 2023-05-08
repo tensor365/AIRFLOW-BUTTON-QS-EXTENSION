@@ -99,14 +99,15 @@ export default function supernova(galaxy) {
             
             try
             {
-              displayMessageBox('123eddef12',`${layout.props.messageBoxTitleLoading}`,`${layout.props.messageBoxDetailLoading}`,null,'Ok',false)
+              displayMessageBox('loadingTab',`${layout.props.messageBoxTitleLoading}`,`${layout.props.messageBoxDetailLoading}`,null,'Ok',false)
               stat = triggerRun();
               console.log(stat)
               return stat
             }
             catch
             {
-              displayMessageBox('123eddef123',`${layout.props.messageBoxTitleError}`,`${layout.props.messageBoxDetailError}`,null,'Ok',false)
+              document.getElementById('msgparent_loadingTab').remove()
+              displayMessageBox('errorTab',`${layout.props.messageBoxTitleError}`,`${layout.props.messageBoxDetailError}`,null,'Ok',false)
             }
 
           }

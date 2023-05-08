@@ -13,6 +13,6 @@
 .lui-center-dialog
 {
     position: absolute;
-    top: 35%; 
-    left: 35%;
+    top: 35% !important; 
+    left: 35% !important;
 }
