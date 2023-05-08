@@ -11,8 +11,8 @@ const properties = {
     buttonStyle:'Default',
     body:'',
     iconStyle:'None',
-    messageBoxTitleReload:'Loading', 
-    messageBoxDetailReload:'Flux has been launched sucessfully.',
+    messageBoxTitleLoading:'Loading', 
+    messageBoxDetailLoading:'Flux has been launched sucessfully.',
     messageBoxTitleError:'Error', 
     messageBoxDetailError:'Error during processing flux.'
   }

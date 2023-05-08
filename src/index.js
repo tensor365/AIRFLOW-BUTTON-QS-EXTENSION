@@ -99,14 +99,14 @@ export default function supernova(galaxy) {
             
             try
             {
-              displayMessageBox('123eddef12',`${layout.props.messageBoxTitle}`,`${layout.props.messageBoxDetail}`,null,'Ok',false)
+              displayMessageBox('123eddef12',`${layout.props.messageBoxTitleLoading}`,`${layout.props.messageBoxDetailLoading}`,null,'Ok',false)
               stat = triggerRun();
               console.log(stat)
               return stat
             }
             catch
             {
-              displayMessageBox('123eddef123','Erreur',"Erreur lors de l'intégration du fichier",null,'Ok',false)
+              displayMessageBox('123eddef123',`${layout.props.messageBoxTitleError}`,`${layout.props.messageBoxDetailError}`,null,'Ok',false)
             }
 
           }
