@@ -11,6 +11,8 @@ const properties = {
     buttonStyle:'Default',
     body:'',
     iconStyle:'None',
+    messageBoxTitleSuccess:"Success",
+    messageBoxDetailSuccess:"Success",
     messageBoxTitleLoading:'Loading', 
     messageBoxDetailLoading:'Flux has been launched sucessfully.',
     messageBoxTitleError:'Error', 

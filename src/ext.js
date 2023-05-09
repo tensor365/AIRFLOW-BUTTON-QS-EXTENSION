@@ -141,6 +141,21 @@ export default function ext(/* galaxy */) {
                   expression: 'optional'
                 }, 
 
+                messageBoxTitleSuccess: {
+                  ref: 'props.messageBoxTitleSuccess',
+                  label: 'On Success Message Box Title',
+                  type: 'string',
+                  expression: 'optional'
+                }, 
+
+                messageBoxDetailSuccess: {
+                  ref: 'props.messageBoxDetailSucess',
+                  label: 'On Success Message Box Detail',
+                  type: 'string',
+                  expression: 'optional'
+                }, 
+
+
                 messageBoxTitleError: {
                   ref: 'props.messageBoxTitleError',
                   label: 'On Error Message Box Title',

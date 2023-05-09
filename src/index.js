@@ -86,29 +86,59 @@ export default function supernova(galaxy) {
           const checkRun = async () => {
             const response = await fetch(URI, {
               method: 'GET',
-              body: layout.props.body, // string or object
               headers: {
                 'Authorization':`Basic ${layout.props.token}`,
               }
             });
-            const jsonAnswer = await response.json(); 
+            const jsonAnswer = await response.json();
             return jsonAnswer
           }
 
-          const triggerButton = () => {
+          const triggerButton =  () => {
             
-            try
-            {
-              displayMessageBox('loadingTab',`${layout.props.messageBoxTitleLoading}`,`${layout.props.messageBoxDetailLoading}`,null,'Ok',false)
-              stat = triggerRun();
-              console.log(stat)
-              return stat
-            }
+            /*try
+            {*/
+              displayMessageBox('loadingTab',`${layout.props.messageBoxTitleLoading}`,`${layout.props.messageBoxDetailLoading}`,null,null,false)
+              
+              var stat = triggerRun();
+              stat.then(res => {
+                console.log(res);
+
+                  });
+                
+                function getLastStatus()  {
+    
+                    var retour = checkRun();
+                    
+                    retour.then(resStatus => {
+                      lastStatus = resStatus['dag_runs'].slice(-1)[0]['state']; 
+                      console.log(lastStatus);
+                    
+                      if( lastStatus == 'success')
+                      {
+                        document.getElementById('msgparent_loadingTab').remove()
+                        displayMessageBox('successTab',`${layout.props.messageBoxTitleSuccess}`,`${layout.props.messageBoxDetailSuccess}`,null,'Ok',false);
+                      }
+                      if( lastStatus == 'failed')
+                      {
+                        throw new Error('Airflow Job has been failed');
+                      }
+                      setTimeout (getLastStatus , 15000 );
+                    }
+                    );
+                  };
+
+
+              var lastStatus='';
+              setTimeout (getLastStatus , 15000 );
+
+
+            /*}
             catch
             {
               document.getElementById('msgparent_loadingTab').remove()
               displayMessageBox('errorTab',`${layout.props.messageBoxTitleError}`,`${layout.props.messageBoxDetailError}`,null,'Ok',false)
-            }
+            }*/
 
           }
 
