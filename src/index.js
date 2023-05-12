@@ -96,20 +96,22 @@ export default function supernova(galaxy) {
 
           const triggerButton =  () => {
             
-            /*try
-            {*/
+            try
+            {
               displayMessageBox('loadingTab',`${layout.props.messageBoxTitleLoading}`,`${layout.props.messageBoxDetailLoading}`,null,null,false)
               
               var stat = triggerRun();
               stat.then(res => {
                 console.log(res);
-
-                  });
-                
+                  }).catch(error => {
+                    document.getElementById('msgparent_loadingTab').remove();
+                    displayMessageBox('errorTab',`Airflow Server cannot be reach.`,`Airflow Server cannot be reach. Please check Airflow Configuration Settings.`,null,'Ok',false);
+                })
+              
                 function getLastStatus()  {
     
                     var retour = checkRun();
-                    
+
                     retour.then(resStatus => {
                       lastStatus = resStatus['dag_runs'].slice(-1)[0]['state']; 
                       console.log(lastStatus);
@@ -123,22 +125,20 @@ export default function supernova(galaxy) {
                       {
                         throw new Error('Airflow Job has been failed');
                       }
-                      setTimeout (getLastStatus , 15000 );
+                      setTimeout (getLastStatus , 15000);
                     }
                     );
                   };
 
-
               var lastStatus='';
-              setTimeout (getLastStatus , 15000 );
-
-
-            /*}
+              setTimeout (getLastStatus , 15000);
+            }
             catch
             {
-              document.getElementById('msgparent_loadingTab').remove()
-              displayMessageBox('errorTab',`${layout.props.messageBoxTitleError}`,`${layout.props.messageBoxDetailError}`,null,'Ok',false)
-            }*/
+              console.log("erreur");
+              document.getElementById('msgparent_loadingTab').remove();
+              displayMessageBox('errorTab',`${layout.props.messageBoxTitleError}`,`${layout.props.messageBoxDetailError}`,null,'Ok',false);
+            }
 
           }
 
