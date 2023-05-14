@@ -201,7 +201,29 @@ export default function ext(/* galaxy */) {
                   index: "-1"
                 }
               },
-    
+
+              borderWidthSlider: {
+                type: "number",
+                component: "slider",
+                label: "Border Width (in %)",
+                ref: "props.borderWidth",
+                min: 0,
+                max: 100,
+                step: 1,
+                defaultValue: 1
+              },
+
+              colorBorderButton: {
+                label:"Border color",
+                component: "color-picker",
+                ref: "props.borderColor",
+                type: "object",
+                defaultValue: {
+                  color: "ff5866",
+                  index: "-1"
+                }
+              },
+
             },
             },
           }

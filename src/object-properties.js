@@ -16,7 +16,10 @@ const properties = {
     messageBoxTitleLoading:'Loading', 
     messageBoxDetailLoading:'Flux has been launched sucessfully.',
     messageBoxTitleError:'Error', 
-    messageBoxDetailError:'Error during processing flux.'
+    messageBoxDetailError:'Error during processing flux.',
+    backgroundColor:'red', 
+    borderColor: 'red', 
+    borderWidth: 0,
   }
 };
 
