@@ -17,8 +17,8 @@ const properties = {
     messageBoxDetailLoading:'Flux has been launched sucessfully.',
     messageBoxTitleError:'Error', 
     messageBoxDetailError:'Error during processing flux.',
-    backgroundColor:'red', 
-    borderColor: 'red', 
+    backgroundColor:{color: "#d20000",index: -1},
+    borderColor: {color: "#d20000",index: -1}, 
     borderWidth: 0,
   }
 };

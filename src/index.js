@@ -135,15 +135,18 @@ export default function supernova(galaxy) {
             }
             catch
             {
-              console.log("erreur");
               document.getElementById('msgparent_loadingTab').remove();
               displayMessageBox('errorTab',`${layout.props.messageBoxTitleError}`,`${layout.props.messageBoxDetailError}`,null,'Ok',false);
             }
 
           }
 
-          element.addEventListener("click",triggerButton)
-
+          element.addEventListener("click",triggerButton);
+          console.log(layout.props.backgroundColor)
+          console.log(layout.props.borderColor);
+          element.style.borderColor = layout.props.borderColor.color;
+          element.style.backgroundColor = layout.props.backgroundColor.color;
+          
       }, [element, layout]);
 
       element.innerHTML = `<button class="lui-button lui-button-airflow ${layout.props.buttonStyle}"> <span class="${layout.props.iconStyle}"></span> ${layout.props.buttonLabel}</button>`;

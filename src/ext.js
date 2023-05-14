@@ -103,9 +103,14 @@ export default function ext(/* galaxy */) {
         settings: {
           uses: "settings",
           items: {
-            AirflowAppearance: {
+            AirflowFontStyle: {
               component: 'items',
-              label: 'Appearance',
+              label: 'Font Style',
+              items:{},
+            },
+            AirflowBorder: {
+              component: 'items',
+              label: 'Border',
               items:{ 
                 
               buttonStyle: {
@@ -217,6 +222,24 @@ export default function ext(/* galaxy */) {
                 label:"Border color",
                 component: "color-picker",
                 ref: "props.borderColor",
+                type: "object",
+                defaultValue: {
+                  color: "ff5866",
+                  index: "-1"
+                }
+              },
+
+            },
+            },
+            AirflowBackground: {
+              component: 'items',
+              label: 'Background',
+              items:{ 
+                
+              colorButton: {
+                label:"Background color",
+                component: "color-picker",
+                ref: "props.backgroundColor",
                 type: "object",
                 defaultValue: {
                   color: "ff5866",
