@@ -30,43 +30,43 @@ export default function supernova(galaxy) {
       
       useEffect(() => {
 
-            //Function to display message box
-            const displayMessageBox =  (windowId,title,detail,ok,cancel,inverse=false) => {
+          //Function to display message box
+          const displayMessageBox =  (windowId,title,detail,ok,cancel,inverse=false) => {
 
-              var node = document.createElement("div");
-              node.id = "msgparent_" + windowId;
-              var html =
-              '  <div class="lui-modal-background"></div>' +
-              '  <div class="lui-center-dialog lui-dialog' + (inverse ? '  lui-dialog--inverse' : '') + '" style="position: absolute; width: 30%;top:50%; left:20%;">' +
-              '    <div class="lui-dialog__header">' +
-              '      <div class="lui-dialog__title">' + title + '</div>' +
-              '    </div>' +
-              '    <div class="lui-dialog__body">' +
-              detail +
-              '    </div>' +
-              '    <div class="lui-dialog__footer">';
-    
-              if (cancel) {
-                  html +=
-                      '  <button class="lui-button  lui-dialog__button' + (inverse ? '  lui-button--inverse' : '') + '" ' +
-                      '   onclick="var elem=document.getElementById(\'msgparent_' + windowId + '\');elem.parentNode.removeChild(elem);">' +
-                      cancel +
-                      ' </button>'
-              }
-              if (ok) {
-                  html +=
-                      '  <button class="lui-button  lui-dialog__button  ' + (inverse ? '  lui-button--inverse' : '') + '" id="msgok_' + windowId + '">' +
-                      ok +
-                      ' </button>'
-              };
-              html +=
-                  '     </div>' +
-                  '  </div>';
-              
-              node.innerHTML = html;
-              document.getElementById("qs-page-container").append(node);
+            var node = document.createElement("div");
+            node.id = "msgparent_" + windowId;
+            var html =
+            '  <div class="lui-modal-background"></div>' +
+            '  <div class="lui-center-dialog lui-dialog' + (inverse ? '  lui-dialog--inverse' : '') + '" style="position: absolute; width: 30%;top:50%; left:20%;">' +
+            '    <div class="lui-dialog__header">' +
+            '      <div class="lui-dialog__title">' + title + '</div>' +
+            '    </div>' +
+            '    <div class="lui-dialog__body">' +
+            detail +
+            '    </div>' +
+            '    <div class="lui-dialog__footer">';
   
+            if (cancel) {
+                html +=
+                    '  <button class="lui-button  lui-dialog__button' + (inverse ? '  lui-button--inverse' : '') + '" ' +
+                    '   onclick="var elem=document.getElementById(\'msgparent_' + windowId + '\');elem.parentNode.removeChild(elem);">' +
+                    cancel +
+                    ' </button>'
             }
+            if (ok) {
+                html +=
+                    '  <button class="lui-button  lui-dialog__button  ' + (inverse ? '  lui-button--inverse' : '') + '" id="msgok_' + windowId + '">' +
+                    ok +
+                    ' </button>'
+            };
+            html +=
+                '     </div>' +
+                '  </div>';
+            
+            node.innerHTML = html;
+            document.getElementById("qs-page-container").append(node);
+
+          }
         
           //Function that will trigger airflow run
           const triggerRun = async () => {
@@ -142,11 +142,13 @@ export default function supernova(galaxy) {
           }
 
           element.addEventListener("click",triggerButton);
-          console.log(layout.props.backgroundColor)
-          console.log(layout.props.borderColor);
           element.style.borderColor = layout.props.borderColor.color;
           element.style.backgroundColor = layout.props.backgroundColor.color;
           
+          return () => {
+            element.removeEventListener("click", triggerButton);
+          };
+
       }, [element, layout]);
 
       element.innerHTML = `<button class="lui-button lui-button-airflow ${layout.props.buttonStyle}"> <span class="${layout.props.iconStyle}"></span> ${layout.props.buttonLabel}</button>`;
