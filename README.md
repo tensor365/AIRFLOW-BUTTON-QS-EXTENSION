@@ -47,15 +47,16 @@ You need to have a functionnal Airflow Cluster.
 
 **Step 2**: Go into airflow.config file
 
-**Step 3**: 
+**Step 3**: Activate HTTPs on the server by adding a self-signed certificate or real certificate 
 
-**Step 4** Provide following informations:
-    
-           • Connection Id of your choise
-           • Qlik Sense Url using the NTLM Virtual Proxy
-           • Qlik Username (DOMAIN\USERNAME)
-           • Qlik Password
+web_server_ssl_cert = <path to cert>
+web_server_ssl_key = <path to key>
+  
+**Step 4**: Activate HTTPs on the server by adding a self-signed certificate or real certificate 
 
+  
+
+  
 
 ### 2. Airflow Configuration Button in Qlik Sense
 <br/>
