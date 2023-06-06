@@ -142,7 +142,7 @@ export default function supernova(galaxy) {
           }
 
           element.addEventListener("click",triggerButton);
-          element.style.borderColor = layout.props.borderColor.color;
+          //element.style.borderColor = layout.props.borderColor.color;
           element.style.backgroundColor = layout.props.backgroundColor.color;
           
           return () => {
